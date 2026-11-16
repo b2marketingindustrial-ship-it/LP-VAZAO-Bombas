@@ -33,6 +33,7 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 ## Configuração
 
 - `GTM_ID` (no `<script>` do fim do `index.html`): fica vazio, porque no WordPress o GTM já vem do site. Preencher só se a LP for publicada fora dele.
+- Todo CTA de orçamento é `<button type="button" class="… btn-slave-whats" data-cta="…">` (padrão B2): o plugin captura o clique e abre o formulário do botão flutuante de WhatsApp (RD Station). Nunca `href` para `#orcamento`. Links de navegação (Ver produtos, atalhos das marcas, abas) continuam `<a>`.
 - Evento no `dataLayer`: `cta_click`, com o local do botão (`cta_local`) e o produto clicado (`produto`).
 - Chat e formulário são shortcodes do plugin de atendimento do WordPress; o lead é tratado pelo plugin. Fora do WordPress (prévia da Vercel) aparecem como texto puro.
 

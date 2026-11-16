@@ -111,6 +111,7 @@ html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100
 body{margin:0;font-family:var(--font);font-size:16px;line-height:1.6;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
+button{margin:0;padding:0;border:0;background:none;font:inherit;color:inherit;text-align:inherit;text-rendering:inherit;-webkit-appearance:none;appearance:none;cursor:pointer}
 h1,h2,h3,h4,p{margin:0}
 h1,h2,h3,h4{color:var(--ink);font-weight:800;letter-spacing:-.025em;text-wrap:balance}
 p{text-wrap:pretty}
@@ -728,7 +729,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   <div class="header-bar">
     <div class="header-logo"><img class="brand" src="assets/logo-vazao.webp" alt="Vazão Engenharia e Montagem" width="230" height="72"></div>
     <div class="header-tag"><span><i><svg class="ico" aria-hidden="true"><use href="#i-badge"/></svg></i>Bombas industriais e locação</span></div>
-    <a class="header-cta" href="#orcamento" data-cta="header"><span class="short">Orçamento</span><span class="full">Solicitar orçamento</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <button type="button" class="header-cta btn-slave-whats" data-cta="header"><span class="short">Orçamento</span><span class="full">Solicitar orçamento</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
   </div>
 </header>
 
@@ -742,7 +743,7 @@ ul,ol{margin:0;padding:0;list-style:none}
           <h1 id="hero-title" class="reveal d1"><span class="accent">Bombas industriais</span> Kronox, ARO e Higra para o seu projeto</h1>
           <p class="hero-lead reveal d2">Booster de esgoto, bombas de diafragma, bombas anfíbias e aeradores para venda, e <strong>locação de bombas</strong> para mineração, drenagem e incêndio. Com engenharia no dimensionamento de cada aplicação.</p>
           <div class="hero-actions reveal d3">
-            <a class="btn" href="#orcamento" data-cta="hero">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <button type="button" class="btn btn-slave-whats" data-cta="hero">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button>
             <a class="btn btn-outline" href="#produtos" data-cta="hero-produtos">Ver produtos <svg class="ico down"><use href="#i-down"/></svg></a>
           </div>
           <ul class="hero-points reveal d3">
@@ -817,32 +818,32 @@ ul,ol{margin:0;padding:0;list-style:none}
           <article class="product reveal">
             <div class="media loaded"><img src="assets/produtos/kronox-baby-booster.jpg" alt="Kronox Baby Booster" loading="lazy" decoding="async"></div>
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-inline"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Baby Booster</h4></div></div><p>Versão compacta do Booster para projetos menores e baixas vazões.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Kronox — Baby Booster" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Kronox — Baby Booster" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <article class="product reveal d1">
             <div class="media loaded"><img src="assets/produtos/kronox-booster-w.jpg" alt="Kronox Booster de Esgoto Modelo W" loading="lazy" decoding="async"></div>
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-inline"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Booster de Esgoto Modelo W</h4></div></div><p>Configuração 2+1R para aplicações com grandes variações de vazão.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Kronox — Booster de Esgoto Modelo W" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Kronox — Booster de Esgoto Modelo W" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <article class="product reveal d2">
             <div class="media loaded"><img src="assets/produtos/kronox-booster-z.jpg" alt="Kronox Booster de Esgoto Modelo Z" loading="lazy" decoding="async"></div>
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-inline"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Booster de Esgoto Modelo Z</h4></div></div><p>Saídas de recalque individualizadas para facilitar a manutenção.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Kronox — Booster de Esgoto Modelo Z" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Kronox — Booster de Esgoto Modelo Z" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <article class="product reveal">
             <div class="media loaded"><img src="assets/produtos/kronox-booster-x.jpg" alt="Kronox Booster X" loading="lazy" decoding="async"></div>
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-inline"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Booster X</h4></div></div><p>Saída única e válvulas individualizadas, para condições menos agressivas.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Kronox — Booster X" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Kronox — Booster X" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <article class="product reveal d1">
             <div class="media loaded"><img src="assets/produtos/kronox-elevatoria-plug-e-play.jpg" alt="Kronox Elevatórias de Esgoto Plug e Play" loading="lazy" decoding="async"></div>
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-box"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Elevatórias de Esgoto Plug e Play</h4></div></div><p>Estação elevatória de esgoto integrada, que reduz as etapas de implantação em campo.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Kronox — Elevatória de Esgoto Plug e Play" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Kronox — Elevatória de Esgoto Plug e Play" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <article class="product reveal d2">
             <div class="media loaded"><img src="assets/produtos/kronox-elevatoria-4-0.jpg" alt="Kronox Elevatória 4.0" loading="lazy" decoding="async"></div>
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-iot"/></svg></span><div class="p-tt"><small>Kronox</small><h4>Elevatória 4.0</h4></div></div><p>Booster com IoT e telemetria: monitoramento online, acesso remoto e alertas de falha.</p><p class="note">Desenvolvida em parceria com a WEG Digital Solutions.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Kronox — Elevatória 4.0" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Kronox — Elevatória 4.0" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
         </div>
       </div>
@@ -867,12 +868,12 @@ ul,ol{margin:0;padding:0;list-style:none}
           <article class="product reveal">
             <div class="media loaded"><img src="assets/produtos/aro-diafragma-pneumatica.jpg" alt="ARO Bombas de Diafragma Pneumáticas" loading="lazy" decoding="async"></div>
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-diaphragm"/></svg></span><div class="p-tt"><small>ARO</small><h4>Bombas de Diafragma Pneumáticas</h4></div></div><p>Bomba pneumática de duplo diafragma, acionada por ar comprimido, para transferir fluidos industriais.</p>
-              <a class="q-btn" href="#orcamento" data-produto="ARO — Bomba de Diafragma Pneumática" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="ARO — Bomba de Diafragma Pneumática" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <article class="product reveal d1">
             <div class="media loaded"><img src="assets/produtos/aro-serie-evo.jpg" alt="ARO Bomba de Diafragma Série EVO" loading="lazy" decoding="async"></div>
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-bolt"/></svg></span><div class="p-tt"><small>ARO</small><h4>Bomba de Diafragma Série EVO</h4></div></div><p>Bomba de diafragma elétrica, alternativa para locais sem ar comprimido.</p>
-              <a class="q-btn" href="#orcamento" data-produto="ARO — Bomba de Diafragma Série EVO" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="ARO — Bomba de Diafragma Série EVO" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <aside class="compare reveal d2" aria-labelledby="cmp-aro">
             <h4 id="cmp-aro">Bomba pneumática ou bomba de diafragma elétrica?</h4>
@@ -902,17 +903,17 @@ ul,ol{margin:0;padding:0;list-style:none}
           <article class="product reveal">
             <div class="media loaded"><img src="assets/produtos/higra-bombas-anfibias.jpg" alt="Higra Bombas Anfíbias" loading="lazy" decoding="async"></div>
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-water"/></svg></span><div class="p-tt"><small>Higra</small><h4>Bombas Anfíbias</h4></div></div><p>Opera submersa, parcialmente afogada ou fora d'água com o mesmo conjunto.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Higra — Bomba Anfíbia" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Higra — Bomba Anfíbia" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <article class="product reveal d1">
             <div class="media loaded"><img src="assets/produtos/higra-bombas-submersas.jpg" alt="Higra Bombas Submersas" loading="lazy" decoding="async"></div>
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-drop"/></svg></span><div class="p-tt"><small>Higra</small><h4>Bombas Submersas</h4></div></div><p>Bomba submersível para instalações em que o conjunto opera totalmente imerso no fluido.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Higra — Bomba Submersa" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Higra — Bomba Submersa" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <article class="product reveal d2">
             <div class="media loaded"><img src="assets/produtos/higra-aeradores.jpg" alt="Higra Aeradores" loading="lazy" decoding="async"></div>
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-bubbles"/></svg></span><div class="p-tt"><small>Higra</small><h4>Aeradores</h4></div></div><p>Aerador industrial para transferência de oxigênio e mistura em ETE, tanques e lagoas.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Higra — Aerador" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Higra — Aerador" data-cta="vitrine">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
         </div>
         <p class="more reveal"><b>Aeradores Higra também nas versões:</b><span>Ciclone (superfície)</span><span>Tornado (submerso)</span><span>Biturbo (submerso)</span></p>
@@ -938,27 +939,27 @@ ul,ol{margin:0;padding:0;list-style:none}
           <article class="product rent reveal">
             
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-mine"/></svg></span><div class="p-tt"><small>Locação</small><h4>Bombas para Mineração</h4></div></div><p>Drenagem, transferência de água e reforço de capacidade na mineração.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Locação — Bombas para Mineração" data-tipo="locacao" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Locação — Bombas para Mineração" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <article class="product rent reveal d1">
             
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-wave"/></svg></span><div class="p-tt"><small>Locação</small><h4>Bombas de Drenagem</h4></div></div><p>Retirada de água em operações industriais, obras e áreas alagadas.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Locação — Bombas de Drenagem" data-tipo="locacao" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Locação — Bombas de Drenagem" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <article class="product rent reveal d2">
             
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-flame"/></svg></span><div class="p-tt"><small>Locação</small><h4>Bombas de Incêndio</h4></div></div><p>Só locação: bombeamento temporário para sistemas industriais de combate a incêndio.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Locação — Bombas de Incêndio" data-tipo="locacao" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Locação — Bombas de Incêndio" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
           <article class="product rent reveal d3">
             
             <div class="product-b"><div class="p-head"><span class="p-ico" aria-hidden="true"><svg class="ico"><use href="#i-system"/></svg></span><div class="p-tt"><small>Locação</small><h4>Sistemas de Bombeamento</h4></div></div><p>Bomba, tubulação e acessórios dimensionados para o período do projeto.</p>
-              <a class="q-btn" href="#orcamento" data-produto="Locação — Sistema de Bombeamento" data-tipo="locacao" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+              <button type="button" class="q-btn btn-slave-whats" data-produto="Locação — Sistema de Bombeamento" data-cta="vitrine-locacao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
           </article>
         </div>
       </div>
 
-      <div class="cta-row"><a href="#orcamento" class="btn" data-cta="vitrine-final">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+      <div class="cta-row"><button type="button" class="btn btn-slave-whats" data-cta="vitrine-final">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
     </div>
   </section>
 
@@ -987,7 +988,7 @@ ul,ol{margin:0;padding:0;list-style:none}
         <b>Quando optar pela locação</b>
         <span><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Necessidade temporária</span><span><svg class="ico" aria-hidden="true"><use href="#i-tools"/></svg>Obra ou manutenção</span><span><svg class="ico" aria-hidden="true"><use href="#i-layers"/></svg>Demanda adicional</span><span><svg class="ico" aria-hidden="true"><use href="#i-rocket"/></svg>Projeto piloto</span><span><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>Contingência</span><span><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg>Sazonalidade</span>
       </div>
-      <div class="cta-row"><a href="#orcamento" class="btn" data-cta="etapas" data-tipo="locacao">Solicitar orçamento de locação <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+      <div class="cta-row"><button type="button" class="btn btn-slave-whats" data-cta="etapas">Solicitar orçamento de locação <svg class="ico"><use href="#i-arrow"/></svg></button></div>
     </div>
   </section>
 
@@ -1028,7 +1029,7 @@ ul,ol{margin:0;padding:0;list-style:none}
           <h3>Sistemas de bombeamento para mineração</h3>
           <p>Drenagem de cava, transferência de água e reforço de capacidade, com bombas e sistemas dimensionados para a operação.</p>
         </div>
-        <a class="btn" href="#orcamento" data-produto="Locação — Bombas para Mineração" data-tipo="locacao" data-cta="aplicacao-mineracao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <button type="button" class="btn btn-slave-whats" data-produto="Locação — Bombas para Mineração" data-cta="aplicacao-mineracao">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button>
       </article>
     </div>
   </section>
@@ -1094,7 +1095,7 @@ ul,ol{margin:0;padding:0;list-style:none}
         <span class="eyebrow left">Perguntas frequentes</span>
         <h2 id="faq-title">Dúvidas sobre <mark>bombas industriais</mark> e locação?</h2>
         <p>Reunimos as principais perguntas para você esclarecer tudo de forma rápida e prática.</p>
-        <a href="#orcamento" class="btn" data-cta="faq">Fale com um especialista <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <button type="button" class="btn btn-slave-whats" data-cta="faq">Fale com um especialista <svg class="ico"><use href="#i-arrow"/></svg></button>
       </div>
       <div class="faq-list reveal d1">
         <p class="faq-group"><svg class="ico" aria-hidden="true"><use href="#i-help"/></svg>Locação</p>
@@ -1121,7 +1122,7 @@ ul,ol{margin:0;padding:0;list-style:none}
             <span class="eyebrow">Fale com um especialista</span>
             <h2 id="cta-title">Não escolha a bomba pelo tamanho.</h2>
             <p>O equipamento certo depende da vazão, da altura manométrica e do fluido. A Vazão analisa a aplicação e indica a bomba para compra ou locação.</p>
-            <a class="btn" href="#orcamento" data-cta="autoridade">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <button type="button" class="btn btn-slave-whats" data-cta="autoridade">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button>
           </div>
           <ul class="cta-list">
             <li><svg class="ico" aria-hidden="true"><use href="#i-ruler"/></svg><div><strong>Indicação técnica</strong><span>para cada aplicação</span></div></li>
@@ -1170,7 +1171,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   </div>
 </footer>
 
-<div class="mobile-cta" id="mobile-cta"><a class="btn" href="#orcamento" data-cta="mobile">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a></div>
+<div class="mobile-cta" id="mobile-cta"><button type="button" class="btn btn-slave-whats" data-cta="mobile">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button></div>
 
 <script>
 document.documentElement.classList.add('js');
@@ -1226,7 +1227,7 @@ document.getElementById('ano').textContent = new Date().getFullYear();
 
 })();
 
-/* Cliques nos botões de orçamento vão para o GTM */
+/* CTAs (button.btn-slave-whats): o plugin de atendimento do WordPress abre o formulário do WhatsApp; aqui só o evento para o GTM */
 document.addEventListener('click', function(e){
   var c = e.target.closest('[data-cta]');
   if (c) dataLayer.push({event:'cta_click', cta_local:c.getAttribute('data-cta'), produto:c.getAttribute('data-produto') || ''});
