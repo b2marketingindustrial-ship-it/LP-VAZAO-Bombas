@@ -6,78 +6,50 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 ## Estrutura
 
 - `index.html`: página única e autocontida (HTML, CSS e JS inline). Fonte: Plus Jakarta Sans. Identidade visual igual à da LP NR13 e do site da Vazão (marinho `#0b3f8a`, azul `#2468cc`, vermelho `#e1062f`).
-- `assets/`: imagens. As fotos e logos abaixo entram **sozinhas** na página quando o arquivo é salvo com o nome exato (vale `.webp`, `.jpg` ou `.png`). Até lá, aparece um ícone no lugar.
+- `assets/`: imagens, com caminho direto no HTML (sem tentativa automática de `.webp`/`.jpg`/`.png`). Foto nova ou trocada: salvar o arquivo e apontar o caminho no `index.html`.
+- CSS em um bloco por seção, na ordem da página, cada um com as próprias versões para telas menores. Largura única: caixa de 1320px com respiro de 40/24/16px (igual à LP NR13).
 
 ### Blocos
 
-1. Topo com menu e botão "Solicitar orçamento"
-2. Hero: H1 "Bombas industriais Kronox, ARO e Higra", espaço reservado para o plugin (`#hero-plugin`), pontos Engenharia · PE e CE · Desde 1991
-3. Marcas (Kronox, ARO, Higra, Locação) + selos: Atendimento PE e CE · Engenharia especializada · Equipe técnica
-4. Vitrine com 4 prateleiras e 15 itens: Kronox (6), ARO (2 + comparativo pneumática × elétrica), Higra (3), Locação (4)
-5. Como funciona a locação (6 etapas, sem prazos) + quando optar pela locação
+1. Topo no padrão da LP NR13: logo, tagline "Bombas industriais e locação" e botão "Solicitar orçamento" (sem menu)
+2. Hero: H1 "Bombas industriais Kronox, ARO e Higra", pontos Engenharia · Nordeste · Desde 1991 e o chat do plugin (`[atendimento_chat id="default"]`)
+3. Linhas de bombas: Kronox, ARO, Higra e Locação (atalhos para as prateleiras) + selos "Venda e locação na mesma equipe" e "Locação com equipamentos revisados"
+4. Vitrine com uma prateleira por marca e a de locação; ARO com comparativo pneumática × elétrica
+5. Como funciona a locação (etapas, sem prazos) + quando optar pela locação
 6. Aplicações: captação, elevatória de esgoto, drenagem (compra **e** locação), ETE + mineração (locação)
-7. Diferenciais (5)
-8. Perguntas frequentes (8, separadas em Locação e Produtos)
-9. Frase de autoridade "Não escolha a bomba pelo tamanho." + formulário de orçamento com os 6 dados que o cliente pode enviar
-10. Rodapé
+7. Diferenciais
+8. Perguntas frequentes (Locação e Bombas), repetidas nos dados estruturados (`FAQPage`) do `<head>`
+9. Faixa do especialista "Não escolha a bomba pelo tamanho." + orçamento: texto, dados que o cliente pode enviar e o formulário do plugin (`[atendimento_form id="default-form"]`)
+10. Rodapé no padrão da LP NR13: copyright · endereço · crédito da B2
 
 ### Imagens pendentes
 
-**Logos das marcas** (400×160, fundo transparente) em `assets/marcas/`:
+**Locação** (1200×900, foto de campo **sem marca em destaque**) para `assets/locacao/`: `bombas-para-mineracao`, `bombas-de-drenagem`, `bombas-de-incendio`, `sistemas-de-bombeamento`. Hoje os quatro cartões aparecem sem foto, só com o ícone; quando as fotos chegarem, incluir no cartão um `<div class="media loaded"><img src="..." alt="..."></div>` antes do `product-b`.
 
-| Arquivo | Observação |
-|---|---|
-| `kronox.png` | enviada pelo usuário; recortar sem o fundo branco |
-| `aro.png` | enviada; baixa resolução |
-| `higra.png` | enviada como JPG quadrado; exportar horizontal |
+**Logos** (`assets/marcas/`): `kronox.png`, `aro.png` (baixa resolução) e `higra.png` (era JPG quadrado) podem ser trocados por versões melhores com o mesmo nome.
 
-**Fotos de produto** (800×600, de preferência fundo transparente) em `assets/produtos/`. As 9 primeiras existem no site da Vazão. O site bloqueia download automático (Cloudflare), então precisam ser salvas pelo navegador:
+**Banner do hero**: `assets/banner-topo.jpg`. Arte com as bombas reduzidas e o fundo estendido para cima e para a direita, para o chat ficar sobre a parte escura sem cobrir as bombas. No celular, aparece como um recorte das bombas abaixo do texto. Também é a imagem de compartilhamento (`og:image`).
 
-| Arquivo | Origem em vazao.com.br/wp-content/uploads/ |
-|---|---|
-| `kronox-baby-booster.jpg` | `2025/03/BABY-BOOSTER.jpg` |
-| `kronox-booster-w.jpg` | `2025/03/BOOSTER-W.jpg` |
-| `kronox-booster-z.png` | `2025/03/Design-sem-nome-93.png` |
-| `kronox-booster-x.png` | `2025/03/Design-sem-nome-96.png` |
-| `kronox-elevatoria-plug-e-play.png` | `2023/07/toraqua.png` |
-| `aro-diafragma-pneumatica.jpg` | `2023/07/bomba-aro.jpg` |
-| `aro-serie-evo.jpg` | `2023/07/bomba-serie-evo.jpg` |
-| `higra-bombas-anfibias.jpg` | `2023/07/PHOTO-2022-11-25-14-56-544.jpg` (foto de galpão) |
-| `higra-aeradores.jpg` | `2023/07/aeradores-higra.jpg` (foto de galpão) |
-| `kronox-elevatoria-4-0` | **ausente** |
-| `higra-bombas-submersas` | **ausente** |
+## Configuração
 
-**Locação** (1200×900, foto de campo **sem marca em destaque**) em `assets/locacao/`: `bombas-para-mineracao`, `bombas-de-drenagem`, `bombas-de-incendio`, `sistemas-de-bombeamento`.
-
-**Aplicações** (1200×900, equipamento operando) em `assets/aplicacoes/`: `captacao-de-agua-bruta`, `estacao-elevatoria-de-esgoto`, `drenagem-industrial`, `tratamento-de-efluentes-ete`, `mineracao`.
-
-**Banner do hero**: `assets/banner-topo.jpg` (incluído). É a arte enviada pelo usuário com as bombas reduzidas e o fundo estendido para cima e para a direita, para o plugin ficar sobre a parte escura sem cobrir as bombas. No celular, a arte aparece como um recorte das bombas abaixo do texto.
-
-## Configuração (bloco `CONFIG` no fim do `index.html`)
-
-- `gtmId`: ID do Google Tag Manager. Vazio = não carrega.
-- `leadEndpoint`: URL que recebe o lead (POST JSON). **Enquanto estiver vazio, o lead segue pelo WhatsApp da campanha (81) 99203-9379**, já com os dados preenchidos.
-- `privacyUrl`: link da política de privacidade.
-
-O lead leva campanha, grupo (do parâmetro `adgroup` da URL; se não houver, deduzido do produto escolhido), palavra-chave (`keyword`/`utm_term`), anúncio (`creative`/`utm_content`), UTMs e `gclid`, guardados por 90 dias.
-Eventos no `dataLayer`: `cta_click` (com o produto clicado), `generate_lead`.
-Os botões "Solicitar orçamento" da vitrine já preenchem o produto e marcam Compra ou Locação no formulário.
+- `GTM_ID` (no `<script>` do fim do `index.html`): ID do Google Tag Manager. Vazio = não carrega.
+- Evento no `dataLayer`: `cta_click`, com o local do botão (`cta_local`) e o produto clicado (`produto`).
+- Chat e formulário são shortcodes do plugin de atendimento do WordPress; o lead é tratado pelo plugin.
 
 ## Regras de conteúdo aplicadas
 
 - Locação **sem marca e sem modelo**, e **sem prazo mínimo** de locação
 - "Representante" só aparece na prateleira Higra ("Representante Higra no Nordeste"). "Distribuidor" e "revenda" não aparecem
+- Nunca contar soluções, produtos ou marcas ("6 soluções", "Três marcas")
 - Nenhum nome de concorrente, nenhum cliente citado
 - "Peças nacionais" virou "Componentes nacionais" (Kronox)
 - Drenagem separada entre comprar (Higra) e alugar (Locação)
 
 ## Pendências
 
-- [ ] Imagens e logos listados acima
-- [ ] **Plugin do hero**: colar o shortcode em `<div class="hero-slot" id="hero-plugin">` (comentário `PLUGIN DO HERO`). O espaço tem 520 px de altura no desktop; no celular ele só aparece quando tiver conteúdo
-- [ ] URL final da LP (hoje `https://vazao.b2marketingindustrial.com.br/bombas-industriais/` no canonical, robots e sitemap)
-- [ ] Link da política de privacidade e `leadEndpoint`/GTM
-- [ ] Endereço: o briefing traz "Brasilit"; a LP NR13 usa "Várzea" para o mesmo CEP. Confirmar com o cliente
+- [ ] Fotos de locação (acima)
+- [ ] URL final da LP (hoje `https://vazao.b2marketingindustrial.com.br/bombas-industriais/` no canonical, `og:url`, `og:image`, dados estruturados, robots e sitemap)
+- [ ] ID do GTM
 - [ ] Perguntas frequentes: validar com o comercial
 - [ ] Negativas do grupo Kronox: lista vazia no briefing (pendência da mídia)
 - [ ] "bomba de incêndio" (genérica) atrai também quem quer **comprar**; a página só aluga
