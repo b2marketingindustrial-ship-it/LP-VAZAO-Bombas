@@ -22,9 +22,9 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 9. Faixa do especialista "Não escolha a bomba pelo tamanho." + orçamento: texto, dados que o cliente pode enviar e o formulário do plugin (`[atendimento_form id="default-form"]`)
 10. Rodapé no padrão da LP NR13: copyright · endereço · crédito da B2
 
-### Imagens pendentes
+### Imagens
 
-**Locação** (1200×900, foto de campo **sem marca em destaque**) para `assets/locacao/`: `bombas-para-mineracao`, `bombas-de-drenagem`, `bombas-de-incendio`, `sistemas-de-bombeamento`. Hoje os quatro cartões aparecem sem foto, só com o ícone; quando as fotos chegarem, incluir no cartão um `<div class="media loaded"><img src="..." alt="..."></div>` antes do `product-b`.
+**Locação**: os quatro cartões ficam só com o ícone, sem foto (decisão de 16/11/2026).
 
 **Logos** (`assets/marcas/`): `kronox.png`, `aro.png` (baixa resolução) e `higra.png` (era JPG quadrado) podem ser trocados por versões melhores com o mesmo nome.
 
@@ -32,9 +32,9 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 
 ## Configuração
 
-- `GTM_ID` (no `<script>` do fim do `index.html`): ID do Google Tag Manager. Vazio = não carrega.
+- `GTM_ID` (no `<script>` do fim do `index.html`): fica vazio, porque no WordPress o GTM já vem do site. Preencher só se a LP for publicada fora dele.
 - Evento no `dataLayer`: `cta_click`, com o local do botão (`cta_local`) e o produto clicado (`produto`).
-- Chat e formulário são shortcodes do plugin de atendimento do WordPress; o lead é tratado pelo plugin.
+- Chat e formulário são shortcodes do plugin de atendimento do WordPress; o lead é tratado pelo plugin. Fora do WordPress (prévia da Vercel) aparecem como texto puro.
 
 ## Regras de conteúdo aplicadas
 
@@ -47,13 +47,9 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 
 ## Pendências
 
-- [ ] Fotos de locação (acima)
-- [ ] URL final da LP (hoje `https://vazao.b2marketingindustrial.com.br/bombas-industriais/` no canonical, `og:url`, `og:image`, dados estruturados, robots e sitemap)
-- [ ] ID do GTM
-- [ ] Perguntas frequentes: validar com o comercial
 - [ ] Negativas do grupo Kronox: lista vazia no briefing (pendência da mídia)
-- [ ] "bomba de incêndio" (genérica) atrai também quem quer **comprar**; a página só aluga
-- [ ] O Grupo 3 (Higra) hoje aponta para `/product-category/aro/`
+- [ ] Campanha: o Grupo 3 (Higra) aponta para `/product-category/aro/`; trocar a URL final para esta LP, na prateleira Higra (`https://vazao.b2marketingindustrial.com.br/bombas-e-locacao/#higra`)
+- [ ] Campanha: "bomba de incêndio" (genérica) atrai quem quer **comprar**. A página já diz "Só locação" no cartão; tratar o termo na campanha
 
 ## Rodar localmente
 
@@ -61,6 +57,8 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 python3 -m http.server 8000   # http://localhost:8000
 ```
 
-## Deploy
+## Publicação
 
-Vercel, conectada a este repositório: todo push na `main` publica em produção.
+- **WordPress (produção)**: push em `main` → GitHub Actions (`.github/workflows/build-wp.yml`) copia `index.html`, `assets/`, `robots.txt` e `sitemap.xml` para a raiz da branch órfã `wp-build` → o plugin B2 LP Publisher (WordPress) lê de lá. Não há build: a página é HTML puro com caminhos relativos.
+- **Vercel**: também publica a cada push na `main`, mas serve só de prévia (os shortcodes não funcionam fora do WordPress).
+- URL final: `https://vazao.b2marketingindustrial.com.br/bombas-e-locacao/`
