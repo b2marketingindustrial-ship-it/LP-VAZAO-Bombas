@@ -45,12 +45,6 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 - "Peças nacionais" virou "Componentes nacionais" (Kronox)
 - Drenagem separada entre comprar (Higra) e alugar (Locação)
 
-## Pendências
-
-- [ ] Negativas do grupo Kronox: lista vazia no briefing (pendência da mídia)
-- [ ] Campanha: o Grupo 3 (Higra) aponta para `/product-category/aro/`; trocar a URL final para esta LP, na prateleira Higra (`https://vazao.b2marketingindustrial.com.br/bombas-e-locacao/#higra`)
-- [ ] Campanha: "bomba de incêndio" (genérica) atrai quem quer **comprar**. A página já diz "Só locação" no cartão; tratar o termo na campanha
-
 ## Rodar localmente
 
 ```bash
@@ -60,5 +54,6 @@ python3 -m http.server 8000   # http://localhost:8000
 ## Publicação
 
 - **WordPress (produção)**: push em `main` → GitHub Actions (`.github/workflows/build-wp.yml`) copia `index.html`, `assets/`, `robots.txt` e `sitemap.xml` para a raiz da branch órfã `wp-build` → o plugin B2 LP Publisher (WordPress) lê de lá. Não há build: a página é HTML puro com caminhos relativos.
+- **Publicação manual**: se o GitHub Actions estiver indisponível (em 16/11/2026 a conta estava bloqueada por cobrança), rodar `bash scripts/publicar-wp.sh` depois do push. Faz o mesmo que o fluxo e atualiza a `wp-build` direto daqui.
 - **Vercel**: também publica a cada push na `main`, mas serve só de prévia (os shortcodes não funcionam fora do WordPress).
 - URL final: `https://vazao.b2marketingindustrial.com.br/bombas-e-locacao/`
