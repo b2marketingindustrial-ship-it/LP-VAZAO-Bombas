@@ -89,6 +89,8 @@
   --sh-card:0 18px 36px -24px rgba(10,43,87,.35);
   --ease:cubic-bezier(.2,.7,.2,1);
   --round:clamp(28px,4vw,56px);
+  /* largura única da página (igual à LP NR13): caixa de 1320px com respiro lateral de 40px, 24px abaixo de 1024px e 16px abaixo de 640px */
+  --page:1320px;--gutter:40px;
   --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   --grid-bg:linear-gradient(rgba(36,104,204,.06) 1px,transparent 1px) center/16px 16px,linear-gradient(90deg,rgba(36,104,204,.06) 1px,transparent 1px) center/16px 16px,radial-gradient(110% 90% at 50% 40%,#fff 0%,#eef4fb 60%,#dfeaf7 100%);
 }
@@ -104,7 +106,9 @@ h1,h2,h3,h4{color:var(--ink);font-weight:800;letter-spacing:-.025em;text-wrap:ba
 p{text-wrap:pretty}
 ul,ol{margin:0;padding:0;list-style:none}
 :focus-visible{outline:3px solid var(--blue-500);outline-offset:3px;border-radius:6px}
-.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+.wrap{width:min(var(--page) - 2*var(--gutter),100% - 2*var(--gutter));margin-inline:auto}
+@media (max-width:1023px){:root{--gutter:24px}}
+@media (max-width:639px){:root{--gutter:16px}}
 .ico{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- Botões ---------- */
@@ -134,7 +138,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(10,43,87,.08);transition:box-shadow .25s ease}
 .site-header.scrolled{box-shadow:0 14px 30px -20px rgba(10,43,87,.55)}
 .header-line{display:block;height:3px;background:linear-gradient(90deg,var(--blue-600) 0%,var(--blue-700) 55%,var(--red-600) 100%)}
-.header-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1320px;margin-inline:auto;padding:12px 40px}
+.header-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:var(--page);margin-inline:auto;padding:12px var(--gutter)}
 .header-logo{display:flex;flex:none;align-items:center}
 .header-logo .brand{width:auto;height:46px}
 .header-tag{display:flex;flex:1;align-items:center;justify-content:center}
@@ -163,11 +167,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* banner de ponta a ponta: sem margem lateral, sem cantos arredondados */
 .hero:has(.hero-card.has-img){padding:0}
 .hero-card.has-img{max-width:none;border-radius:0 0 var(--round) var(--round);box-shadow:none;min-height:max(clamp(620px,46vw,720px),33vw)}
-@media (min-width:2000px){
-  .hero .hero-card.has-img .hero-inner{max-width:none;width:calc(100% - 22vw)}
-}
 .hero-card.has-img .hero-panel,.hero-card.has-img .hero-stripe,.hero-card.has-img .hero-lines{display:none}
-.hero-card.has-img .hero-inner{width:calc(100% - 2*clamp(28px,4vw,64px));max-width:1480px;grid-template-columns:minmax(0,1fr) minmax(0,390px)}
+.hero-card.has-img .hero-inner{grid-template-columns:minmax(0,1fr) minmax(0,390px)}
 .hero-card.has-img .hero-copy{max-width:580px}
 .hero-mob{display:none}
 @media (max-width:1560px){
@@ -181,7 +182,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media (min-width:901px) and (max-width:1200px){
 }
 .hero-stripe{position:absolute;top:0;bottom:0;left:calc(56% - 14px);z-index:-1;width:150px;background:var(--red-600);clip-path:polygon(120px 0,128px 0,8px 100%,0 100%)}
-.hero-inner{width:min(1200px,100% - 2*clamp(28px,5vw,80px));margin-inline:auto;padding:56px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:clamp(40px,6vw,96px);align-items:center}
+.hero-inner{width:min(var(--page) - 2*var(--gutter),100% - 2*var(--gutter));margin-inline:auto;padding:56px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:clamp(40px,6vw,96px);align-items:center}
 .hero-copy{max-width:580px}
 .hero-copy .eyebrow{color:var(--blue-700)}
 .hero-copy .eyebrow::before{display:none}
@@ -364,7 +365,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .dif-lines,.dif-wave{position:absolute;left:0;width:100%;z-index:-1;pointer-events:none}
 .dif-lines{top:0;height:100%}
 .dif-wave{bottom:0;height:clamp(300px,30vw,440px)}
-.dif-section .wrap{width:min(1360px,100% - 48px)}
 .benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
 .benefit{position:relative;padding:30px 20px 28px;border:1px solid #dde6f1;border-radius:var(--r-lg);background:#fff;text-align:center;box-shadow:0 24px 48px -28px rgba(6,27,56,.45),0 2px 6px rgba(10,43,87,.06);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .benefit::before{content:"";position:absolute;top:-1px;left:50%;width:96px;height:6px;border-radius:0 0 4px 4px;background:var(--blue-500);transform:translateX(-50%)}
@@ -394,7 +394,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ---------- Frase de autoridade + contato ---------- */
 .talk{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(180deg,#f5f8fd 0%,#edf3fb 100%)}
 .talk::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(115deg,transparent 0 5%,rgba(255,255,255,.8) 5% 12%,transparent 12% 68%,rgba(255,255,255,.65) 68% 76%,transparent 76%),linear-gradient(115deg,transparent 0 24%,rgba(214,228,245,.55) 24% 29%,transparent 29% 86%,rgba(214,228,245,.5) 86% 92%,transparent 92%)}
-.talk .wrap{width:min(1360px,100% - clamp(48px,8vw,200px))}
 .cta-section{--list:clamp(320px,26vw,430px);padding:clamp(48px,5vw,64px) 0 0}
 .cta{position:relative;display:grid;grid-template-columns:minmax(0,1fr) var(--list);min-height:clamp(300px,22vw,360px);border-radius:24px;overflow:hidden;background:linear-gradient(120deg,#082b5e 0%,#0a3478 60%,#0b3f8a 100%);isolation:isolate;box-shadow:0 40px 80px -40px rgba(6,27,56,.55)}
 .cta::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(120,170,255,.07) 1px,transparent 1px) 0 0/34px 34px,linear-gradient(90deg,rgba(120,170,255,.07) 1px,transparent 1px) 0 0/34px 34px;-webkit-mask-image:linear-gradient(90deg,transparent 30%,#000 70%);mask-image:linear-gradient(90deg,transparent 30%,#000 70%)}
@@ -430,54 +429,18 @@ ul,ol{margin:0;padding:0;list-style:none}
 .info li{display:flex;align-items:center;gap:14px;font-size:14.5px;font-weight:500;color:var(--ink)}
 .info .ico{width:22px;height:22px;color:var(--red-600);stroke-width:1.8}
 
-.form-card{position:relative;overflow:hidden;padding:clamp(26px,2.6vw,40px);border-radius:20px;background:#fff;border:1px solid #dfe8f3;box-shadow:0 30px 60px -36px rgba(10,43,87,.4)}
-.form-card::after{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--red-600) 0 40%,var(--blue-500) 40% 100%)}
-.form-card h3{font-size:clamp(22px,1.8vw,26px);line-height:1.2;color:var(--blue-700)}
-.form-card .hint{margin:6px 0 22px;font-size:15px;color:var(--muted)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
-.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
-.field label{font-size:13px;font-weight:700;color:var(--navy-800)}
-.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--line-strong);border-radius:10px;background:#fff;font-size:15px;color:var(--ink);transition:border-color .2s,box-shadow .2s}
-.field textarea{min-height:88px;resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--blue-500);box-shadow:0 0 0 3px rgba(36,104,204,.18)}
-.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.seg label{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 12px;border:1.5px solid var(--line-strong);border-radius:10px;font-size:14.5px;font-weight:700;color:var(--blue-700);cursor:pointer;transition:border-color .2s,background-color .2s,color .2s}
-.seg input{position:absolute;opacity:0;pointer-events:none}
-.seg label:has(input:checked){border-color:var(--blue-600);background:var(--blue-50)}
-.seg label.rent:has(input:checked){border-color:var(--red-600);background:var(--red-50);color:var(--red-700)}
-.seg label:has(input:focus-visible){outline:3px solid var(--blue-500);outline-offset:2px}
-.tech{margin:2px 0 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
-.tech summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px;list-style:none;cursor:pointer;font-size:14px;font-weight:700;color:var(--blue-700)}
-.tech summary::-webkit-details-marker{display:none}
-.tech summary span{font-weight:500;color:var(--muted)}
-.tech summary::after{content:"+";font-size:20px;line-height:1;color:var(--red-600)}
-.tech[open] summary::after{content:"–"}
-.tech-in{padding:2px 16px 4px}
-.tech .field input{background:#fff}
-.only-rent{display:none}
-.is-rent .only-rent{display:flex}
-.form-card .btn{width:100%;min-height:56px;margin-top:6px;font-size:16px}
-.legal{margin-top:12px;font-size:12.5px;text-align:center;color:var(--muted)}
-.legal a{text-decoration:underline}
-.err{display:none;margin-top:10px;font-size:13.5px;font-weight:600;color:var(--red-700)}
-.form-ok{display:none;padding:36px 10px;text-align:center}
-.form-ok .ok-ico{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 16px;border-radius:50%;background:#eaf6ee;color:var(--green-600)}
-.form-ok .ok-ico .ico{width:30px;height:30px;stroke-width:2.4}
-.form-card.sent form{display:none}
-.form-card.sent .form-ok{display:block}
-.flash{animation:flash 1.2s var(--ease)}
-@keyframes flash{0%,100%{box-shadow:0 30px 60px -36px rgba(10,43,87,.4)}30%{box-shadow:0 0 0 4px rgba(36,104,204,.35),0 30px 60px -36px rgba(10,43,87,.4)}}
+.form-slot{min-height:520px}
 
 /* ---------- Rodapé (mesma estrutura da LP NR13): uma linha com copyright, endereço e crédito ---------- */
 .site-footer{position:relative;background-color:var(--blue-700);background-image:radial-gradient(1200px 520px at 16% -10%,rgba(255,255,255,.08) 0%,transparent 55%),linear-gradient(165deg,var(--blue-600) 0%,var(--blue-700) 50%,var(--navy-800) 100%);border-top:1px solid rgba(255,255,255,.15)}
-.footer-line{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:1320px;margin-inline:auto;padding:24px 40px;font-size:12px;line-height:1.5}
+.footer-line{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:var(--page);margin-inline:auto;padding:24px var(--gutter);font-size:12px;line-height:1.5}
 .footer-line p{flex:none;color:rgba(255,255,255,.55)}
 .footer-line address{display:flex;align-items:center;gap:8px;font-style:normal;white-space:nowrap;color:rgba(255,255,255,.7)}
 .footer-line address .ico{flex:none;width:14px;height:14px;color:var(--red-600)}
 .footer-line a{font-weight:600;color:rgba(255,255,255,.8);transition:color .2s}
 .footer-line a:hover{color:var(--red-600)}
 @media (max-width:1023px){
-  .footer-line{flex-direction:column;align-items:center;gap:12px;padding:24px;text-align:center}
+  .footer-line{flex-direction:column;align-items:center;gap:12px;text-align:center}
   .footer-line address{display:block;white-space:normal}
   .footer-line address .ico{display:inline-block;margin-right:6px;vertical-align:-2px}
 }
@@ -491,8 +454,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .apps{z-index:5;margin-top:calc(var(--round) * -1);padding-top:calc(clamp(72px,9vw,112px) + var(--round));border-radius:0 0 var(--round) var(--round)}
 .dif-section{z-index:4;margin-top:calc(var(--round) * -1);padding-top:calc(clamp(72px,9vw,112px) + var(--round));border-radius:0 0 var(--round) var(--round)}
 .faq{z-index:3;margin-top:calc(var(--round) * -1);padding-top:calc(clamp(72px,9vw,112px) + var(--round));border-radius:0 0 var(--round) var(--round);box-shadow:0 34px 50px -40px rgba(10,43,87,.3)}
-.talk{z-index:2;margin-top:calc(var(--round) * -1);padding-top:var(--round);border-radius:0 0 var(--round) var(--round)}
-.site-footer{z-index:0;margin-top:calc(var(--round) * -1);padding-top:var(--round)}
+.talk{z-index:2;margin-top:calc(var(--round) * -1);padding-top:var(--round)}
 
 /* ---------- CTA fixo (mobile) ---------- */
 .mobile-cta{display:none}
@@ -531,10 +493,10 @@ ul,ol{margin:0;padding:0;list-style:none}
   .hero-card.has-img{background:linear-gradient(180deg,#f4f9ff 0,#e4effc 100%)}
   .hero-slot,.hero-slot:empty{min-height:0}
   .hero-slot:empty{display:none}
-  .hero-card.has-img .hero-inner{width:auto;grid-template-columns:1fr;gap:28px}
+  .hero-card.has-img .hero-inner{grid-template-columns:1fr;gap:28px}
   .hero-card.has-img .hero-copy{max-width:640px}
   .hero-card.has-img .hero-mob{display:block;width:100%;max-width:640px;aspect-ratio:6/5;background:#0a3478 var(--hero-img) right center/auto 100% no-repeat;border-radius:18px;box-shadow:0 24px 44px -26px rgba(6,27,56,.6)}
-  .hero-inner{grid-template-columns:1fr;width:auto;padding:40px clamp(24px,5vw,48px) 40px;gap:40px}
+  .hero-inner{grid-template-columns:1fr;padding:40px 0;gap:40px}
   .hero-copy{max-width:640px}
   .chat{max-width:560px;width:100%;margin-inline:auto;height:500px}
   .brand-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -549,10 +511,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media (max-width:640px){
   html{scroll-padding-top:76px}
   body{font-size:15px}
-  .wrap{width:calc(100% - 32px)}
   .hero{padding:8px 8px 0}
   .hero-card{border-radius:20px}
-  .hero-inner{padding:32px 18px 24px}
+  .hero-inner{padding:32px 0 24px}
   .hero h1{font-size:clamp(31px,9vw,40px);margin:16px 0}
   .hero-lead{font-size:15.5px}
   .hero-actions{margin-top:24px}
@@ -587,7 +548,6 @@ ul,ol{margin:0;padding:0;list-style:none}
   .app-wide{grid-template-columns:1fr;padding:12px 12px 20px}
   .app-wide>div:not(.media){padding:0 6px}
   .app-wide .btn{width:100%;margin:0 6px;width:calc(100% - 12px)}
-  .dif-section .wrap{width:calc(100% - 32px)}
   .benefits{grid-template-columns:1fr 1fr;gap:12px}
   .benefit:last-child{grid-column:1/-1}
   .benefit{padding:26px 14px 22px;border-radius:16px}
@@ -600,15 +560,12 @@ ul,ol{margin:0;padding:0;list-style:none}
   .faq-list summary{padding:18px 58px 18px 18px;font-size:16px}
   .faq-list summary::after{right:16px}
   .faq-list details p{padding:0 18px 18px;font-size:15px}
-  .talk .wrap{width:calc(100% - 32px)}
   .cta{border-radius:20px}
   .cta-main{padding:32px 24px 28px}
   .cta .btn{width:100%}
   .cta-list{flex-direction:column;gap:0;padding:8px 24px}
   .cta-list li{flex:none;padding:16px 0;border-bottom:1px solid #d9e3ef}
   .send-data ul{grid-template-columns:1fr}
-  .grid2{grid-template-columns:1fr}
-  .form-card{padding:28px 20px 22px}
   .footer-line{padding-bottom:96px}
   .mobile-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px max(10px,env(safe-area-inset-bottom));background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s var(--ease)}
   .mobile-cta.show{transform:none}
@@ -617,7 +574,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ---------- Header: telas menores (mesmos pontos de quebra da LP NR13) ---------- */
 @media (max-width:1023px){.header-tag{display:none}}
 @media (max-width:639px){
-  .header-bar{gap:12px;padding:12px 16px}
+  .header-bar{gap:12px}
   .header-logo .brand{height:34px}
   .header-cta{padding:10px 16px;font-size:13px}
   .header-cta .ico,.header-cta .full{display:none}
@@ -641,7 +598,6 @@ html{scroll-padding-top:88px}
 .vitrine::before{content:"";position:absolute;left:0;right:0;top:0;z-index:-1;height:clamp(640px,64vw,1000px);border-radius:inherit;background:url(assets/vitrine-fundo.jpg?v=1) center top/cover no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent var(--round),#000 calc(var(--round) + 260px),#000 72%,transparent);mask-image:linear-gradient(180deg,transparent 0,transparent var(--round),#000 calc(var(--round) + 260px),#000 72%,transparent);pointer-events:none}
 .vitrine .brands{position:relative;border-radius:32px;background:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(255,255,255,.9);box-shadow:0 34px 70px -40px rgba(10,43,87,.5),inset 0 1px 0 rgba(255,255,255,.95)}
 .vitrine{container-type:inline-size}
-.vitrine .brands{--g:clamp(16px,2.5vw,40px);width:calc(100cqw - 2*var(--g));margin-left:calc(50% - 50cqw + var(--g))}
 .vitrine .brands-in{grid-template-columns:minmax(0,280px) minmax(0,1fr)}
 .vitrine .brands-label{padding-right:clamp(16px,2.4vw,36px);border-right:1px solid rgba(10,43,87,.14)}
 .vitrine .brands-label .eyebrow{font-size:13px}
@@ -660,6 +616,19 @@ html{scroll-padding-top:88px}
 .vitrine .brand-tile span.cap{font-size:14px;font-weight:500;color:#41536e}
 .vitrine .seals li{padding:12px 22px 12px 16px;background:rgba(255,255,255,.72);border:1px solid #fff;box-shadow:0 12px 26px -18px rgba(10,43,87,.45);font-size:16px;color:var(--navy-800)}
 .vitrine .seals .ico{box-sizing:content-box;width:24px;height:24px;padding:0 12px 0 0;border-radius:0;background:none;box-shadow:none;border-right:1px solid #d3deec}
+/* Cartão de marcas organizado em duas colunas: título e diferenciais | quatro cartões do mesmo tamanho */
+.vitrine .brands{padding:clamp(28px,3vw,44px)}
+.vitrine .brands-in{grid-template-columns:minmax(0,320px) minmax(0,1fr);align-items:center;gap:clamp(28px,3.5vw,56px)}
+.vitrine .brands-label{display:flex;flex-direction:column;justify-content:center}
+.vitrine .seals{flex-direction:column;align-items:flex-start;gap:14px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(10,43,87,.12)}
+.vitrine .seals li{gap:12px;padding:0;background:none;border:0;box-shadow:none;font-size:15px;font-weight:600}
+.vitrine .seals .ico{width:20px;height:20px;padding:0;border:0;color:var(--red-600)}
+.vitrine .brand-tiles{gap:16px}
+.vitrine .brand-tile{justify-content:center;gap:14px;min-height:0;padding:28px 18px 24px}
+.vitrine .brand-tile .logo-slot{max-width:190px;height:60px;font-size:34px}
+.vitrine .brand-tile[href="#aro"] .logo-slot{padding:5px 0}
+.vitrine .brand-tile.own .logo-slot{font-size:30px}
+.vitrine .brand-tile span.cap{min-height:2.6em;line-height:1.3}
 .vitrine .section-head h2{font-size:clamp(34px,4.3vw,62px);line-height:1.06;letter-spacing:-.035em;color:var(--navy-800)}
 .vitrine .section-head p{font-size:clamp(16px,1.3vw,19px)}
 .vitrine .section-head .eyebrow{font-size:13px}
@@ -671,17 +640,18 @@ html{scroll-padding-top:88px}
 .shelf-nav a.active{background:var(--navy-800)}
 @media (max-width:900px){
   .vitrine .brands-in{grid-template-columns:1fr}
-  .vitrine .brands-label{padding-right:0;border-right:0}
+  .vitrine .brands-label{padding-right:0;border-right:0;text-align:center}
+  .vitrine .seals{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:10px 24px;margin-top:20px;padding-top:20px}
 }
 @media (max-width:640px){
   .vitrine .brands{border-radius:24px}
-  .vitrine .brand-tile{min-height:150px;padding:16px 10px 14px}
   .vitrine .brand-tile .t-ico{width:36px;height:36px}
-  .vitrine .brand-tile .logo-slot{height:56px;font-size:28px}
   .vitrine .brand-tile.own .logo-slot{font-size:22px}
   .vitrine .brand-tile span.cap{font-size:12.5px}
-  .vitrine .seals li{font-size:14px;padding:9px 16px 9px 12px}
-  .vitrine .seals .ico{width:20px;height:20px;padding-right:10px}
+  .vitrine .seals li{font-size:14px}
+  .vitrine .brand-tile{padding:20px 10px 16px}
+  .vitrine .brand-tile .logo-slot{height:44px;font-size:24px}
+  .vitrine .brand-tile[href="#aro"] .logo-slot{padding:4px 0}
   .shelf-nav{padding:5px}
   .shelf-nav a{padding:10px 14px;font-size:14px}
 }
@@ -847,7 +817,7 @@ html{scroll-padding-top:88px}
 
 .apps{background:#ebf3fe}
 .apps::before{content:"";position:absolute;left:0;right:0;top:0;z-index:-1;height:min(100%,56.3vw);border-radius:inherit;background:url(assets/aplicacoes-fundo.jpg?v=1) center top/cover no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent var(--round),#000 calc(var(--round) + 200px));mask-image:linear-gradient(180deg,transparent 0,transparent var(--round),#000 calc(var(--round) + 200px));pointer-events:none}
-.apps .wrap{width:min(1440px,100% - 48px)}
+
 @media (max-width:900px){.apps::before{height:520px;background-position:12% top;-webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);mask-image:linear-gradient(180deg,#000 60%,transparent)}}
 /* ===== Aplicações: fotos nos cartões, ícone com traço vermelho, faixa da mineração ===== */
 .apps .section-head h2{font-size:clamp(34px,4.3vw,62px);line-height:1.04;letter-spacing:-.035em;color:var(--navy-800)}
@@ -889,7 +859,7 @@ html{scroll-padding-top:88px}
 .faq{background:#eef4fc}
 .faq::before{content:"";position:absolute;left:0;right:0;bottom:0;z-index:-1;height:min(100%,39.2vw);border-radius:0 0 var(--round) var(--round);background:url(assets/faq-fundo.jpg?v=1) center bottom/100% auto no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 30%);mask-image:linear-gradient(180deg,transparent 0,#000 30%);pointer-events:none}
 .faq{padding-bottom:clamp(110px,10vw,170px)}
-.faq .wrap{width:min(1440px,100% - 48px);grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.faq .wrap{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
 .faq .head-left{position:static;padding-bottom:clamp(220px,20vw,340px)}
 .faq .head-left h2{font-size:clamp(36px,4.2vw,64px);line-height:1.08;letter-spacing:-.035em;color:var(--navy-800)}
 .faq .head-left h2 mark{position:relative;z-index:0;display:inline-block;margin:6px 0 2px -10px;padding:0 22px 4px 18px;background:none;color:#fff}
@@ -929,8 +899,6 @@ html{scroll-padding-top:88px}
   .cta::after{display:none}
 }
 /* ===== Especialista e orçamento: faixa maior, itens com ícone, formulário mais encorpado ===== */
-.talk .wrap{width:min(1440px,100% - 48px)}
-.talk::after{content:"";position:absolute;left:-6%;right:-6%;bottom:-1px;z-index:-1;height:clamp(90px,9vw,150px);background:linear-gradient(180deg,var(--red-600) 0 14%,var(--blue-700) 14%);clip-path:ellipse(60% 100% at 50% 100%);opacity:.95;pointer-events:none}
 .cta{border-radius:26px;box-shadow:0 30px 60px -34px rgba(6,27,56,.7)}
 .cta h2{font-size:clamp(32px,3.2vw,52px)}
 .cta .btn{border-radius:12px;box-shadow:0 18px 30px -14px rgba(225,6,47,.7)}
@@ -953,14 +921,6 @@ html{scroll-padding-top:88px}
 .info{max-width:none;margin-top:26px}
 .info li{font-size:clamp(14.5px,1.1vw,16.5px)}
 .info .ico{width:24px;height:24px}
-.form-card{border-color:#fff;border-radius:24px;box-shadow:0 34px 64px -36px rgba(10,43,87,.5)}
-.form-card::after{height:6px}
-.form-card h3{font-size:clamp(26px,2.3vw,34px);letter-spacing:-.03em;color:var(--navy-800)}
-.form-card .hint{font-size:15.5px;color:#3a4a63}
-.field input,.field select,.field textarea{border-radius:12px;background:#fbfcfe}
-.seg label{min-height:50px;border-radius:12px;color:var(--navy-800)}
-.seg label .ico{width:20px;height:20px;stroke-width:1.8}
-.form-card .btn{min-height:60px;border-radius:14px;font-size:clamp(17px,1.3vw,20px);background:linear-gradient(180deg,#ff1f47,var(--red-600) 55%,#c4002a);box-shadow:0 18px 30px -14px rgba(225,6,47,.7)}
 @media (max-width:900px){
   .contact{grid-template-columns:1fr}
 }
@@ -968,7 +928,6 @@ html{scroll-padding-top:88px}
   .send-data ul{grid-template-columns:1fr 1fr}
   .send-data li{padding:12px 10px;gap:10px}
   .send-data .n{width:34px;height:34px}
-  .talk::after{height:70px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -1078,6 +1037,11 @@ html{scroll-padding-top:88px}
         <div class="brands-label reveal">
           <span class="eyebrow left">Marcas</span>
           <p id="brands-title">Três marcas de bombas e locação própria</p>
+          <ul class="seals">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Atendimento em todo o Nordeste</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-gear"/></svg>Engenharia especializada</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-headset"/></svg>Equipe técnica</li>
+          </ul>
         </div>
         <div class="brand-tiles reveal d1">
           <a class="brand-tile" href="#kronox" data-cta="marca-kronox"><svg class="ico t-ico" aria-hidden="true"><use href="#i-inline"/></svg><span class="logo-slot" data-logo="assets/marcas/kronox"><span class="wm">KRONOX</span></span><span class="bar" aria-hidden="true"></span><span class="cap">Booster e elevatórias de esgoto</span></a>
@@ -1086,11 +1050,6 @@ html{scroll-padding-top:88px}
           <a class="brand-tile own" href="#locacao" data-cta="marca-locacao"><svg class="ico t-ico" aria-hidden="true"><use href="#i-cal"/></svg><span class="logo-slot"><span class="wm">LOCAÇÃO</span></span><span class="bar" aria-hidden="true"></span><span class="cap">Bombas e sistemas temporários</span></a>
         </div>
       </div>
-      <ul class="seals reveal d2">
-        <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Atendimento em todo o Nordeste</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-gear"/></svg>Engenharia especializada</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-headset"/></svg>Equipe técnica</li>
-      </ul>
       </div>
 
       <div class="section-head reveal">
@@ -1470,97 +1429,7 @@ html{scroll-padding-top:88px}
           </ul>
         </div>
 
-        <div class="form-card reveal d1" id="form-box">
-          <form id="lead-form" novalidate>
-            <h3>Solicite seu orçamento</h3>
-            <p class="hint">Preencha os dados e um especialista da Vazão entra em contato.</p>
-            <div class="field">
-              <span style="font-size:13px;font-weight:700;color:var(--navy-800)" id="tipo-lbl">Você precisa de*</span>
-              <div class="seg" role="radiogroup" aria-labelledby="tipo-lbl">
-                <label><input type="radio" name="tipo" value="Compra" checked><svg class="ico" aria-hidden="true"><use href="#i-cart"/></svg> Comprar equipamento</label>
-                <label class="rent"><input type="radio" name="tipo" value="Locação"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg> Alugar bomba</label>
-              </div>
-            </div>
-            <div class="grid2">
-              <div class="field"><label for="f-nome">Nome*</label><input id="f-nome" name="nome" autocomplete="name" required></div>
-              <div class="field"><label for="f-empresa">Empresa*</label><input id="f-empresa" name="empresa" autocomplete="organization" required></div>
-            </div>
-            <div class="grid2">
-              <div class="field"><label for="f-email">E-mail*</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-              <div class="field"><label for="f-tel">Telefone / WhatsApp*</label><input id="f-tel" name="telefone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(81) 99999-9999" required></div>
-            </div>
-            <div class="grid2">
-              <div class="field"><label for="f-cidade">Cidade / Estado*</label><input id="f-cidade" name="cidade" autocomplete="address-level2" placeholder="Ex.: Recife - PE" required></div>
-              <div class="field"><label for="f-produto">Produto de interesse</label>
-                <select id="f-produto" name="produto">
-                  <option value="">Selecione</option>
-                  <optgroup label="Kronox">
-                    <option>Kronox — Baby Booster</option>
-                    <option>Kronox — Booster de Esgoto Modelo W</option>
-                    <option>Kronox — Booster de Esgoto Modelo Z</option>
-                    <option>Kronox — Booster X</option>
-                    <option>Kronox — Elevatória de Esgoto Plug e Play</option>
-                    <option>Kronox — Elevatória 4.0</option>
-                  </optgroup>
-                  <optgroup label="ARO">
-                    <option>ARO — Bomba de Diafragma Pneumática</option>
-                    <option>ARO — Bomba de Diafragma Série EVO</option>
-                    <option>ARO — Outra linha</option>
-                  </optgroup>
-                  <optgroup label="Higra">
-                    <option>Higra — Bomba Anfíbia</option>
-                    <option>Higra — Bomba Submersa</option>
-                    <option>Higra — Aerador</option>
-                  </optgroup>
-                  <optgroup label="Locação">
-                    <option>Locação — Bombas para Mineração</option>
-                    <option>Locação — Bombas de Drenagem</option>
-                    <option>Locação — Bombas de Incêndio</option>
-                    <option>Locação — Sistema de Bombeamento</option>
-                  </optgroup>
-                  <option>Ainda não sei / quero indicação</option>
-                </select>
-              </div>
-            </div>
-            <div class="field"><label for="f-aplic">Aplicação</label>
-              <select id="f-aplic" name="aplicacao">
-                <option value="">Selecione</option>
-                <option>Esgoto / estação elevatória</option>
-                <option>Captação ou recalque de água</option>
-                <option>Drenagem</option>
-                <option>ETE / aeração</option>
-                <option>ETA</option>
-                <option>Transferência de fluidos industriais</option>
-                <option>Mineração</option>
-                <option>Combate a incêndio</option>
-                <option>Outra</option>
-              </select>
-            </div>
-            <details class="tech" id="tech">
-              <summary>Dados técnicos <span>opcional</span></summary>
-              <div class="tech-in">
-                <div class="grid2">
-                  <div class="field"><label for="f-vazao">Vazão</label><input id="f-vazao" name="vazao" placeholder="Ex.: 120 m³/h"></div>
-                  <div class="field"><label for="f-altura">Altura manométrica</label><input id="f-altura" name="altura_manometrica" placeholder="Ex.: 35 mca"></div>
-                </div>
-                <div class="grid2">
-                  <div class="field"><label for="f-fluido">Fluido bombeado</label><input id="f-fluido" name="fluido" placeholder="Água, efluente, químico..."></div>
-                  <div class="field"><label for="f-atual">Bomba atual</label><input id="f-atual" name="bomba_atual" placeholder="Modelo, se houver"></div>
-                </div>
-                <div class="field only-rent"><label for="f-periodo">Período previsto de locação</label><input id="f-periodo" name="periodo_locacao" placeholder="Ex.: durante a obra"></div>
-              </div>
-            </details>
-            <div class="field"><label for="f-desc">Descrição da necessidade</label><textarea id="f-desc" name="descricao" placeholder="Ex.: distância, regime de operação, condições da instalação..."></textarea></div>
-            <button type="submit" class="btn" data-cta="form">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></button>
-            <p class="err" id="form-err" role="alert">Preencha nome, empresa, e-mail, telefone e cidade.</p>
-            <p class="legal">Ao enviar, você concorda com a <a href="#" data-privacy>Política de Privacidade</a>.</p>
-          </form>
-          <div class="form-ok" role="status">
-            <div class="ok-ico"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></div>
-            <h3>Solicitação enviada!</h3>
-            <p class="hint">Obrigado. Um especialista da Vazão vai entrar em contato em breve.</p>
-          </div>
-        </div>
+        <div class="form-slot reveal d1">[atendimento_form id="default-form"]</div>
       </div>
     </section>
   </div>
@@ -1617,16 +1486,6 @@ function getTracking(){
 }
 var TRACKING = getTracking();
 
-/* Grupo do anúncio: vem da URL (adgroup); se não vier, é deduzido do produto escolhido */
-function grupoDe(lead){
-  if (TRACKING.adgroup) return TRACKING.adgroup;
-  var p = (lead.produto || lead.linha || '') + ' ' + (lead.tipo || '');
-  if (/Locação|alugar/i.test(p)) return 'Locação de Bombas';
-  if (/Kronox/i.test(p)) return 'Kronox';
-  if (/ARO/.test(p)) return 'ARO';
-  if (/Higra/i.test(p)) return 'Higra';
-  return '';
-}
 
 /* Imagens: entram sozinhas quando o arquivo existir em assets/ (testa .webp, .jpg e .png) */
 var EXTS = ['.webp','.jpg','.png'];
@@ -1691,77 +1550,10 @@ tryImg(heroCard.getAttribute('data-hero-img'), function(s){ heroCard.style.setPr
 
 })();
 
-/* Formulário: compra x locação */
-var form = document.getElementById('lead-form');
-function setTipo(t){
-  var r = form.querySelector('input[name="tipo"][value="' + t + '"]'); if (r) r.checked = true;
-  form.classList.toggle('is-rent', t === 'Locação');
-}
-form.addEventListener('change', function(e){ if (e.target.name === 'tipo') setTipo(e.target.value); });
-document.getElementById('f-produto').addEventListener('change', function(){
-  if (/^Locação/.test(this.value)) setTipo('Locação'); else if (/^(Kronox|ARO|Higra)/.test(this.value)) setTipo('Compra');
-});
-
-/* Botões de orçamento da vitrine preenchem o formulário */
+/* Cliques nos botões de orçamento vão para o GTM */
 document.addEventListener('click', function(e){
   var c = e.target.closest('[data-cta]');
   if (c) dataLayer.push({event:'cta_click', cta_local:c.getAttribute('data-cta'), produto:c.getAttribute('data-produto') || ''});
-  var p = e.target.closest('[data-produto],[data-tipo]');
-  if (p) {
-    var prod = p.getAttribute('data-produto');
-    if (prod) document.getElementById('f-produto').value = prod;
-    setTipo(p.getAttribute('data-tipo') === 'locacao' || /^Locação/.test(prod || '') ? 'Locação' : 'Compra');
-    var box = document.getElementById('form-box');
-    box.classList.remove('flash'); void box.offsetWidth; box.classList.add('flash');
-    setTimeout(function(){ var n = document.getElementById('f-nome'); if (n && !n.value) n.focus({preventScroll:true}); }, 600);
-  }
-});
-
-/* Envio do lead (formulário e chat) */
-function sendLead(lead, origem){
-  var payload = Object.assign({
-    origem: origem,
-    pagina: location.href.split('?')[0],
-    campanha: CONFIG.campanha,
-    grupo: grupoDe(lead),
-    palavra_chave: TRACKING.keyword || TRACKING.utm_term || '',
-    anuncio: TRACKING.creative || TRACKING.utm_content || '',
-    enviado_em: new Date().toISOString()
-  }, TRACKING, lead);
-  dataLayer.push({event:'generate_lead', lead_origem: origem, tipo: lead.tipo || '', produto: lead.produto || lead.linha || '', grupo: payload.grupo});
-
-  if(CONFIG.leadEndpoint){
-    return fetch(CONFIG.leadEndpoint, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload), keepalive:true})
-      .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); })
-      .catch(function(err){ console.error('Falha no envio do lead', err); openWhats(lead); });
-  }
-  openWhats(lead);
-  return Promise.resolve();
-}
-function openWhats(l){
-  var rent = l.tipo === 'Locação';
-  var lines = [
-    'Olá! Vim pela página de Bombas Industriais e gostaria de um orçamento' + (rent ? ' de locação.' : '.'),
-    'Nome: ' + l.nome, 'Empresa: ' + l.empresa, 'Telefone: ' + l.telefone, 'E-mail: ' + l.email
-  ];
-  var extra = [['Cidade/Estado','cidade'],['Interesse','produto'],['Linha','linha'],['Aplicação','aplicacao'],['Vazão','vazao'],['Altura manométrica','altura_manometrica'],['Fluido','fluido'],['Bomba atual','bomba_atual'],['Período de locação','periodo_locacao'],['Necessidade','descricao']];
-  extra.forEach(function(x){ if (l[x[1]] && !(x[1] === 'periodo_locacao' && !rent)) lines.push(x[0] + ': ' + l[x[1]]); });
-  window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(lines.join('\n')), '_blank');
-}
-var PHONE_RE = /^\(?\d{2}\)?[\s-]?9?\d{4}[\s-]?\d{4}$/;
-var MAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-form.addEventListener('submit', function(e){
-  e.preventDefault();
-  var fd = new FormData(form), lead = {};
-  fd.forEach(function(v,k){ v = String(v).trim(); if (v) lead[k] = v; });
-  if (lead.tipo !== 'Locação') delete lead.periodo_locacao;
-  var ok = lead.nome && lead.empresa && MAIL_RE.test(lead.email||'') && PHONE_RE.test(lead.telefone||'') && lead.cidade;
-  var err = document.getElementById('form-err');
-  if(!ok){ err.style.display = 'block'; err.textContent = lead.email && !MAIL_RE.test(lead.email) ? 'Confira o e-mail informado.' : (lead.telefone && !PHONE_RE.test(lead.telefone) ? 'Confira o telefone, com DDD.' : 'Preencha nome, empresa, e-mail, telefone e cidade.'); return; }
-  err.style.display = 'none';
-  var btn = form.querySelector('button[type=submit]'); btn.disabled = true;
-  sendLead(lead, 'formulario').then(function(){ document.getElementById('form-box').classList.add('sent'); });
 });
 </script>
 </body>
