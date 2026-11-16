@@ -130,19 +130,22 @@ ul,ol{margin:0;padding:0;list-style:none}
 .section-head p,.head-left p{font-size:17px;color:var(--muted)}
 .cta-row{display:flex;justify-content:center;margin-top:clamp(36px,4vw,48px)}
 
-/* ---------- Header ---------- */
-.site-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
-.site-header.scrolled{border-color:var(--line);box-shadow:0 8px 24px -18px rgba(10,43,87,.35)}
-.nav{height:76px;display:flex;align-items:center;gap:20px}
-.brand{width:138px;height:auto}
-.nav-links{margin-left:auto;display:flex;align-items:center;gap:clamp(18px,2.2vw,36px)}
-.nav-links a:not(.btn){position:relative;padding:10px 0 12px;font-size:15px;font-weight:600;letter-spacing:-.01em;color:var(--blue-700);transition:color .2s}
-.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;border-radius:2px;background:var(--blue-100);transition:background-color .25s}
-.nav-links a:not(.btn):hover{color:var(--blue-600)}
-.nav-links a:not(.btn):hover::after{background:var(--blue-200)}
-.nav-links a.active:not(.btn){color:var(--navy-800)}
-.nav-links a.active:not(.btn)::after{background:var(--red-600)}
-.nav-links .btn{margin-left:clamp(4px,1vw,16px)}
+/* ---------- Header (mesma estrutura da LP NR13): filete, logo na barra, tagline com selo, CTA compacto ---------- */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(10,43,87,.08);transition:box-shadow .25s ease}
+.site-header.scrolled{box-shadow:0 14px 30px -20px rgba(10,43,87,.55)}
+.header-line{display:block;height:3px;background:linear-gradient(90deg,var(--blue-600) 0%,var(--blue-700) 55%,var(--red-600) 100%)}
+.header-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:1320px;margin-inline:auto;padding:12px 40px}
+.header-logo{display:flex;flex:none;align-items:center}
+.header-logo .brand{width:auto;height:46px}
+.header-tag{display:flex;flex:1;align-items:center;justify-content:center}
+.header-tag span{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-700)}
+.header-tag i{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:rgba(225,6,47,.12);color:var(--red-600)}
+.header-tag .ico{width:16px;height:16px}
+.header-cta{display:inline-flex;flex:none;align-items:center;gap:8px;padding:10px 20px;background:var(--red-600);font-size:14px;font-weight:700;color:#fff;transition:background-color .2s}
+.header-cta:hover{background:var(--red-700)}
+.header-cta .ico{width:16px;height:16px}
+.header-cta .short{display:none}
+@media (prefers-reduced-motion:reduce){.site-header{transition:none}}
 
 /* ---------- Hero ---------- */
 .hero{padding:12px 16px 0}
@@ -465,27 +468,19 @@ ul,ol{margin:0;padding:0;list-style:none}
 .flash{animation:flash 1.2s var(--ease)}
 @keyframes flash{0%,100%{box-shadow:0 30px 60px -36px rgba(10,43,87,.4)}30%{box-shadow:0 0 0 4px rgba(36,104,204,.35),0 30px 60px -36px rgba(10,43,87,.4)}}
 
-/* ---------- Rodapé ---------- */
-.site-footer{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(70% 120% at 85% 40%,#0b3170 0%,rgba(11,49,112,0) 60%),linear-gradient(180deg,#0a2552 0%,#071c40 100%);color:#b9c9e2;font-size:15px}
-.site-footer::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(rgba(74,144,255,.06) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(74,144,255,.06) 1px,transparent 1px) 0 0/40px 40px;-webkit-mask-image:linear-gradient(90deg,#000,transparent 30%,transparent 60%,#000);mask-image:linear-gradient(90deg,#000,transparent 30%,transparent 60%,#000)}
-.foot-deco{position:absolute;left:0;top:0;z-index:-1;width:420px;height:100%;pointer-events:none}
-.site-footer .wrap{width:min(1300px,100% - clamp(48px,10vw,240px))}
-.footer-top{display:grid;grid-template-columns:minmax(0,420px) auto auto minmax(0,260px);align-items:start;gap:0 clamp(36px,4vw,72px);padding:clamp(64px,7vw,104px) 0 clamp(40px,4vw,56px)}
-.footer-brand{padding-right:clamp(24px,3vw,56px);border-right:1px solid rgba(124,160,220,.3);min-height:100%}
-.foot-logos{position:relative;display:inline-flex;align-items:center;padding:16px 26px 20px;border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 24px 44px -24px rgba(0,0,0,.6)}
-.foot-logos::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--red-600) 0 40%,var(--blue-500) 40% 100%)}
-.foot-logos .brand{width:178px}
-.footer-brand p{margin-top:26px;max-width:400px;font-size:clamp(15px,1.05vw,17px);line-height:1.6;color:#d3def0}
-.site-footer h4{position:relative;margin:4px 0 30px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#fff;font-weight:800}
-.site-footer h4::after{content:"";position:absolute;left:0;bottom:-14px;width:36px;height:3px;border-radius:2px;background:var(--red-600)}
-.site-footer ul{display:grid;gap:12px}
-.site-footer ul a,.site-footer ul span{font-size:clamp(15px,1.02vw,16.5px);line-height:1.45;color:#c6d4ea;transition:color .2s}
-.site-footer ul a:hover{color:#fff}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px 0 clamp(36px,4vw,56px);border-top:1px solid rgba(124,160,220,.3);font-size:14.5px;color:#c6d4ea}
-.to-top{display:inline-flex;align-items:center;gap:10px;flex:none;padding:12px 30px;border:1.5px solid #2f6fd6;border-radius:999px;font-weight:700;color:#fff;transition:background-color .2s}
-.to-top:hover{background:#2f6fd6}
-.to-top .ico{width:16px;height:16px;stroke-width:2.2;transition:transform .25s var(--ease)}
-.to-top:hover .ico{transform:translateY(-2px)}
+/* ---------- Rodapé (mesma estrutura da LP NR13): uma linha com copyright, endereço e crédito ---------- */
+.site-footer{position:relative;background-color:var(--blue-700);background-image:radial-gradient(1200px 520px at 16% -10%,rgba(255,255,255,.08) 0%,transparent 55%),linear-gradient(165deg,var(--blue-600) 0%,var(--blue-700) 50%,var(--navy-800) 100%);border-top:1px solid rgba(255,255,255,.15)}
+.footer-line{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:1320px;margin-inline:auto;padding:24px 40px;font-size:12px;line-height:1.5}
+.footer-line p{flex:none;color:rgba(255,255,255,.55)}
+.footer-line address{display:flex;align-items:center;gap:8px;font-style:normal;white-space:nowrap;color:rgba(255,255,255,.7)}
+.footer-line address .ico{flex:none;width:14px;height:14px;color:var(--red-600)}
+.footer-line a{font-weight:600;color:rgba(255,255,255,.8);transition:color .2s}
+.footer-line a:hover{color:var(--red-600)}
+@media (max-width:1023px){
+  .footer-line{flex-direction:column;align-items:center;gap:12px;padding:24px;text-align:center}
+  .footer-line address{display:block;white-space:normal}
+  .footer-line address .ico{display:inline-block;margin-right:6px;vertical-align:-2px}
+}
 
 /* ---------- Divisores arredondados entre seções (mesmo efeito do site) ---------- */
 .vitrine{z-index:7;margin-top:calc(-1*var(--round));padding-top:calc(clamp(48px,6vw,72px) + var(--round)*.4);border-radius:var(--round);box-shadow:0 34px 50px -40px rgba(10,43,87,.35)}
@@ -510,11 +505,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ---------- Responsivo ---------- */
 @media (max-width:1200px){
   .benefits{grid-template-columns:repeat(3,1fr)}
-  .footer-top{grid-template-columns:repeat(3,auto);gap:36px 56px}
-  .footer-brand{grid-column:1/-1;padding:0 0 32px;border-right:0;border-bottom:1px solid rgba(124,160,220,.3)}
 }
 @media (max-width:1080px){
-  .nav-links{gap:18px}
   .hero-inner{grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:40px}
   .hero-panel{left:58%}
   .hero-stripe{left:calc(58% - 14px)}
@@ -534,7 +526,6 @@ ul,ol{margin:0;padding:0;list-style:none}
   .cta-list li{flex:1 1 200px;padding:0;border:0}
 }
 @media (max-width:900px){
-  .nav-links a:not(.btn){display:none}
   .hero-card{min-height:0;background:linear-gradient(180deg,#fff 0,#fff calc(100% - 320px),#0a3478 calc(100% - 320px),#0b3f8a 100%)}
   .hero-panel,.hero-stripe,.hero-lines{display:none}
   .hero-card.has-img{background:linear-gradient(180deg,#f4f9ff 0,#e4effc 100%)}
@@ -559,10 +550,6 @@ ul,ol{margin:0;padding:0;list-style:none}
   html{scroll-padding-top:76px}
   body{font-size:15px}
   .wrap{width:calc(100% - 32px)}
-  .nav{height:66px;gap:12px}
-  .brand{width:112px}
-  .nav-links .btn{min-height:40px;padding:0 14px;font-size:13px;margin-left:0}
-  .nav-links .btn .ico{display:none}
   .hero{padding:8px 8px 0}
   .hero-card{border-radius:20px}
   .hero-inner{padding:32px 18px 24px}
@@ -622,35 +609,20 @@ ul,ol{margin:0;padding:0;list-style:none}
   .send-data ul{grid-template-columns:1fr}
   .grid2{grid-template-columns:1fr}
   .form-card{padding:28px 20px 22px}
-  .site-footer .wrap{width:calc(100% - 32px)}
-  .footer-top{grid-template-columns:1fr 1fr;gap:32px 24px;padding:52px 0 32px}
-  .footer-top>div:last-child{grid-column:1/-1}
-  .foot-logos{padding:12px 20px 16px}
-  .foot-logos .brand{width:150px}
-  .footer-bottom{flex-direction:column;align-items:flex-start;padding-bottom:110px}
+  .footer-line{padding-bottom:96px}
   .mobile-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px max(10px,env(safe-area-inset-bottom));background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s var(--ease)}
   .mobile-cta.show{transform:none}
   .mobile-cta .btn{width:100%}
 }
-/* ---------- Topo: barra flutuante arredondada com efeito de vidro, sobre o banner ---------- */
-.site-header{position:fixed;top:14px;left:max(12px,1vw);right:max(12px,1vw);z-index:50;border-radius:999px;background:linear-gradient(115deg,rgba(255,255,255,.8) 0%,rgba(255,255,255,.66) 55%,rgba(236,244,255,.72) 100%);-webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);border:1px solid rgba(255,255,255,.85);box-shadow:0 14px 34px -14px rgba(10,43,87,.38),0 2px 6px -2px rgba(10,43,87,.12),inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(36,104,204,.12)}
-.site-header::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,0) 50%)}
-.site-header.scrolled{border-color:rgba(255,255,255,.85);background:linear-gradient(115deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.74) 55%,rgba(236,244,255,.7) 100%);box-shadow:0 18px 40px -16px rgba(10,43,87,.42),0 2px 6px -2px rgba(10,43,87,.12),inset 0 1px 0 rgba(255,255,255,.95)}
-.site-header .nav{position:relative;width:auto;max-width:none;height:78px;padding-inline:clamp(20px,3.6vw,56px) 14px}
-.site-header .brand{width:164px}
-/* links do menu no centro da barra: logo | links | botão */
-.site-header .nav{display:grid;grid-template-columns:1fr auto 1fr}
-.site-header .nav-links{display:contents}
-.site-header .nav-menu{display:flex;align-items:center;gap:clamp(18px,3vw,44px)}
-.site-header .nav-links .btn{justify-self:end;margin-left:0}
-.site-header .nav-links a:not(.btn){font-size:16px;color:var(--navy-800)}
-.site-header .nav-links a:not(.btn)::after{background:transparent}
-.site-header .nav-links a:not(.btn):hover::after{background:rgba(225,6,47,.35)}
-.site-header .nav-links a.active:not(.btn)::after{background:var(--red-600)}
-.site-header .nav-links .btn{min-height:50px;padding:0 26px;border-radius:999px;font-size:16px;margin-left:clamp(8px,2vw,32px)}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.site-header{background:rgba(255,255,255,.95)}}
-/* o banner sobe até o topo da tela; o conteúdo desce para não ficar sob a barra */
-.hero .hero-inner{padding-top:136px}
+/* ---------- Header: telas menores (mesmos pontos de quebra da LP NR13) ---------- */
+@media (max-width:1023px){.header-tag{display:none}}
+@media (max-width:639px){
+  .header-bar{gap:12px;padding:12px 16px}
+  .header-logo .brand{height:34px}
+  .header-cta{padding:10px 16px;font-size:13px}
+  .header-cta .ico,.header-cta .full{display:none}
+  .header-cta .short{display:inline}
+}
 .hero:not(:has(.has-img)){padding-top:0}
 .shelf-nav{position:static}
 /* abas da vitrine: só a marca escolhida aparece; a locação fica sempre visível */
@@ -658,18 +630,10 @@ ul,ol{margin:0;padding:0;list-style:none}
 .js .shelf.brand-shelf.on{animation:shelfIn .35s ease both}
 @keyframes shelfIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .shelf{scroll-margin-top:176px}
-html{scroll-padding-top:104px}
-@media (max-width:900px){
-  .hero .hero-inner{padding-top:120px}
-}
+html{scroll-padding-top:88px}
 @media (max-width:640px){
-  .site-header{top:8px;left:8px;right:8px;border-radius:20px}
-  .site-header .nav{height:62px;padding-inline:14px 8px}
-  .site-header .brand{width:112px}
-  .site-header .nav-links .btn{min-height:42px;padding:0 16px;font-size:13px}
-  .hero .hero-inner{padding-top:96px}
   .shelf{scroll-margin-top:146px}
-  html{scroll-padding-top:80px}
+  html{scroll-padding-top:72px}
 }
 
 /* ===== Vitrine: fundo em arte, cartão de marcas em vidro, abas maiores ===== */
@@ -966,7 +930,7 @@ html{scroll-padding-top:104px}
 }
 /* ===== Especialista e orçamento: faixa maior, itens com ícone, formulário mais encorpado ===== */
 .talk .wrap{width:min(1440px,100% - 48px)}
-.talk::after{content:"";position:absolute;left:-6%;right:-6%;bottom:-1px;z-index:-1;height:clamp(90px,9vw,150px);background:linear-gradient(180deg,var(--red-600) 0 14%,#0a2a5c 14%);clip-path:ellipse(60% 100% at 50% 100%);opacity:.95;pointer-events:none}
+.talk::after{content:"";position:absolute;left:-6%;right:-6%;bottom:-1px;z-index:-1;height:clamp(90px,9vw,150px);background:linear-gradient(180deg,var(--red-600) 0 14%,var(--blue-700) 14%);clip-path:ellipse(60% 100% at 50% 100%);opacity:.95;pointer-events:none}
 .cta{border-radius:26px;box-shadow:0 30px 60px -34px rgba(6,27,56,.7)}
 .cta h2{font-size:clamp(32px,3.2vw,52px)}
 .cta .btn{border-radius:12px;box-shadow:0 18px 30px -14px rgba(225,6,47,.7)}
@@ -1052,18 +1016,12 @@ html{scroll-padding-top:104px}
 </svg>
 
 <header class="site-header" id="topo">
-  <nav class="wrap nav" aria-label="Navegação principal">
-    <a href="#topo" aria-label="Vazão Engenharia e Montagem — início"><img class="brand" src="assets/logo-vazao.webp" alt="Vazão Engenharia e Montagem" width="230" height="72"></a>
-    <div class="nav-links">
-      <div class="nav-menu">
-        <a href="#produtos">Produtos</a>
-        <a href="#locacao">Locação</a>
-        <a href="#aplicacoes">Aplicações</a>
-        <a href="#faq">Dúvidas</a>
-      </div>
-      <a class="btn btn-sm" href="#orcamento" data-cta="header">Solicitar orçamento <svg class="ico"><use href="#i-arrow"/></svg></a>
-    </div>
-  </nav>
+  <span class="header-line" aria-hidden="true"></span>
+  <div class="header-bar">
+    <div class="header-logo"><img class="brand" src="assets/logo-vazao.webp" alt="Vazão Engenharia e Montagem" width="230" height="72"></div>
+    <div class="header-tag"><span><i><svg class="ico" aria-hidden="true"><use href="#i-badge"/></svg></i>Bombas industriais e locação</span></div>
+    <a class="header-cta" href="#orcamento" data-cta="header"><span class="short">Orçamento</span><span class="full">Solicitar orçamento</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
 </header>
 
 <main>
@@ -1609,37 +1567,10 @@ html{scroll-padding-top:104px}
 </main>
 
 <footer class="site-footer">
-  <svg class="foot-deco" viewBox="0 0 420 600" preserveAspectRatio="xMinYMid slice" aria-hidden="true" fill="none">
-    <g stroke="#3b82f6" opacity=".22"><circle cx="-20" cy="380" r="110"/><circle cx="-20" cy="380" r="170"/><circle cx="-20" cy="380" r="235"/></g>
-    <g stroke="#3b82f6" opacity=".3" stroke-dasharray="6 7"><path d="M70 100V600M0 345H290"/></g>
-    <g stroke="#6ea2ff" opacity=".55"><path d="M256 470v24M244 482h24"/></g>
-  </svg>
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="foot-logos"><img class="brand" src="assets/logo-vazao.webp" alt="Vazão Engenharia e Montagem" width="230" height="72" loading="lazy"></div>
-        <p>Engenharia e montagem industrial desde 1991. Bombas industriais Kronox, ARO e Higra, e locação de bombas para todo o Nordeste.</p>
-      </div>
-      <div>
-        <h4>Produtos</h4>
-        <ul><li><a href="#kronox">Bombas Kronox</a></li><li><a href="#aro">Bombas ARO</a></li><li><a href="#higra">Bombas Higra</a></li><li><a href="#locacao">Locação de bombas</a></li></ul>
-      </div>
-      <div>
-        <h4>Navegação</h4>
-        <ul><li><a href="#como-funciona">Como funciona a locação</a></li><li><a href="#aplicacoes">Aplicações</a></li><li><a href="#faq">Dúvidas</a></li><li><a href="#orcamento">Orçamento</a></li></ul>
-      </div>
-      <div>
-        <h4>Contato</h4>
-        <ul>
-          <li><span>Av. Barão de Bonito, 880 - Brasilit, Recife - PE, 50740-080</span></li>
-          <li><a href="#" data-privacy>Política de Privacidade</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="ano">2026</span> Vazão Engenharia e Montagem. Todos os direitos reservados. · Desenvolvido por B2 Marketing Industrial.</span>
-      <a class="to-top" href="#topo">Voltar ao topo <svg class="ico"><use href="#i-up"/></svg></a>
-    </div>
+  <div class="footer-line">
+    <p>© <span id="ano">2026</span> Vazão Engenharia e Montagem. Todos os direitos reservados.</p>
+    <address><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span>Av. Barão de Bonito, 880 - Brasilit, Recife - PE, 50740-080</span></address>
+    <p>Desenvolvido por <a href="https://b2marketingindustrial.com.br" target="_blank" rel="noopener noreferrer">B2 Marketing Industrial</a></p>
   </div>
 </footer>
 
@@ -1718,7 +1649,7 @@ document.querySelectorAll('[data-logo]').forEach(function(el){
 var heroCard = document.querySelector('[data-hero-img]');
 tryImg(heroCard.getAttribute('data-hero-img'), function(s){ heroCard.style.setProperty('--hero-img','url("'+s+'")'); heroCard.classList.add('has-img'); });
 
-/* Interface: header, animações, CTA fixo, menu ativo, prateleiras */
+/* Interface: header, animações, CTA fixo, prateleiras */
 (function(){
   var $ = function(s, c){ return (c||document).querySelector(s); };
   var $$ = function(s, c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
@@ -1758,20 +1689,6 @@ tryImg(heroCard.getAttribute('data-hero-img'), function(s){ heroCard.style.setPr
   });
   if (brands.indexOf(location.hash.slice(1)) >= 0) { showShelf(location.hash.slice(1)); $('.shelf-nav').scrollIntoView(); }
 
-  // Menu do topo: marca a seção que está na tela
-  var topLinks = $$('.nav-links a:not(.btn)');
-  if (hasIO) {
-    var spy = function(links, ids){
-      var ob = new IntersectionObserver(function(es){ es.forEach(function(e){
-        if (e.isIntersecting) links.forEach(function(a){ a.classList.toggle('active', a.hash === '#' + e.target.id); });
-      }); }, {rootMargin:'-40% 0px -55% 0px'});
-      ids.forEach(function(id){ var el = document.getElementById(id); if (el) ob.observe(el); });
-    };
-    spy(topLinks, ['produtos','locacao','como-funciona','aplicacoes','diferenciais','faq','orcamento']);
-    // "Produtos" não fica ativo enquanto a prateleira de locação está na tela
-    new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) topLinks.forEach(function(a){ a.classList.toggle('active', a.hash === '#locacao'); }); }); }, {rootMargin:'-40% 0px -55% 0px'}).observe($('#locacao'));
-    new IntersectionObserver(function(en){ if (en[0].isIntersecting) topLinks.forEach(function(a){ a.classList.remove('active'); }); }, {rootMargin:'-40% 0px -55% 0px'}).observe($('.hero'));
-  }
 })();
 
 /* Formulário: compra x locação */
