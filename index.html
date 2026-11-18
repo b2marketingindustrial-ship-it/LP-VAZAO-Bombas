@@ -19,7 +19,7 @@
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="768">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/banner-topo.jpg?v=2" fetchpriority="high">
+<link rel="preload" as="image" href="assets/banner-topo.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -196,15 +196,14 @@ ul,ol{margin:0;padding:0;list-style:none}
   .header-cta .short{display:inline}
 }
 
-/* ===== Hero: banner de ponta a ponta (assets/banner-topo), texto à esquerda, chat à direita =====
-   Bombas no canto inferior esquerdo da arte: o banner ocupa a largura toda, colado embaixo, e o fundo claro
-   continua para cima (mesmo recurso do fundo das perguntas frequentes). O texto fica acima das bombas,
-   o chat sobre o galpão, à direita. */
-.hero-card{position:relative;display:flex;align-items:flex-start;margin:0 auto;border-radius:0 0 var(--round) var(--round);overflow:hidden;isolation:isolate;background:#e6f0fd;box-shadow:0 30px 50px -34px rgba(6,27,56,.5)}
-.hero-card::before{content:"";position:absolute;left:0;right:0;bottom:0;z-index:-1;aspect-ratio:3/1;background:var(--hero-img) center bottom/100% auto no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%);mask-image:linear-gradient(180deg,transparent 0,#000 22%);pointer-events:none}
-.hero-inner{width:min(var(--page) - 2*var(--gutter),100% - 2*var(--gutter));margin-inline:auto;padding:48px 0 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,390px);gap:clamp(40px,6vw,96px);align-items:start}
-/* espaço livre abaixo do texto para as bombas (o topo delas fica a 58% da altura da arte, que é 1/3 da largura) */
-.hero-copy{max-width:580px;margin-bottom:calc(19.4vw + 8px)}
+/* ===== Hero: banner de ponta a ponta (assets/banner-topo), texto à esquerda, chat à direita ===== */
+.hero-card{position:relative;display:flex;align-items:center;min-height:max(clamp(620px,46vw,720px),33vw);margin:0 auto;border-radius:0 0 var(--round) var(--round);overflow:hidden;isolation:isolate;background:#9fd3fc var(--hero-img) right bottom/cover no-repeat;box-shadow:0 30px 50px -34px rgba(6,27,56,.5)}
+/* telas mais largas que 8:3: imagem encaixada pela altura, fundo azul-claro continua à esquerda */
+@media (min-width:1921px){.hero-card{background-size:auto 100%}}
+/* telas médias: encaixa pela altura e empurra as bombas para a direita do texto (corta só um pouco da borda direita) */
+@media (min-width:901px) and (max-width:1920px){.hero-card{background-size:auto 100%;background-position:max(42vw - 1.355*clamp(620px,46vw,720px), 100vw - 2.667*clamp(620px,46vw,720px)) bottom}}
+.hero-inner{width:min(var(--page) - 2*var(--gutter),100% - 2*var(--gutter));margin-inline:auto;padding:56px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,390px);gap:clamp(40px,6vw,96px);align-items:center}
+.hero-copy{max-width:580px}
 .hero-copy .eyebrow{color:var(--blue-700)}
 .hero-copy .eyebrow::before{display:none}
 .hero-copy .eyebrow::after{width:44px;background:var(--red-600)}
@@ -237,11 +236,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 }
 @media (max-width:900px){
   .hero-card{background:linear-gradient(180deg,#f4f9ff 0,#e4effc 100%)}
-  .hero-card::before{display:none}
-  .hero-copy{margin-bottom:0}
   .hero-inner{grid-template-columns:1fr;gap:28px;padding:40px 0}
   .hero-copy{max-width:640px}
-  .hero-mob{display:block;width:100%;max-width:640px;aspect-ratio:16/9;background:#e6f0fd var(--hero-img) 13% bottom/215% auto no-repeat;border-radius:18px;box-shadow:0 24px 44px -26px rgba(6,27,56,.6)}
+  .hero-mob{display:block;width:100%;max-width:640px;aspect-ratio:6/5;background:#0a3478 var(--hero-img) right center/auto 100% no-repeat;border-radius:18px;box-shadow:0 24px 44px -26px rgba(6,27,56,.6)}
   .hero-slot{min-height:0}
 }
 @media (max-width:639px){
@@ -559,7 +556,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 /* ===== Perguntas frequentes: fundo em arte, título com destaque vermelho, perguntas em grupos ===== */
 .faq{padding-bottom:clamp(110px,10vw,170px);background:#eef4fc}
-.faq::before{content:"";position:absolute;left:0;right:0;bottom:0;z-index:-1;height:min(100%,39.2vw);border-radius:0 0 var(--round) var(--round);background:url(assets/faq-fundo.jpg?v=1) center bottom/100% auto no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 30%);mask-image:linear-gradient(180deg,transparent 0,#000 30%);pointer-events:none}
+.faq::before{content:"";position:absolute;left:0;right:0;bottom:0;z-index:-1;height:min(100%,33.4vw);border-radius:0 0 var(--round) var(--round);background:url(assets/faq-fundo.jpg?v=2) center bottom/100% auto no-repeat;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 30%);mask-image:linear-gradient(180deg,transparent 0,#000 30%);pointer-events:none}
 .faq .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,5vw,72px);align-items:start}
 .faq .head-left{padding-bottom:clamp(220px,20vw,340px)}
 .faq .eyebrow{font-size:14px}
@@ -739,7 +736,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 <main>
   <!-- HERO: texto à esquerda, banner ao fundo, chat (shortcode) na coluna da direita -->
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-card has-img" style="--hero-img:url(assets/banner-topo.jpg?v=2)">
+    <div class="hero-card has-img" style="--hero-img:url(assets/banner-topo.jpg)">
       <div class="hero-inner">
         <div class="hero-copy">
           <span class="eyebrow reveal">Kronox · ARO · Higra · Locação</span>
