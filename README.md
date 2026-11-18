@@ -28,7 +28,7 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 
 **Logos** (`assets/marcas/`): `kronox.png`, `aro.png` (baixa resolução) e `higra.png` (era JPG quadrado) podem ser trocados por versões melhores com o mesmo nome.
 
-**Banner do hero**: `assets/banner-topo.jpg`. Arte com as bombas reduzidas e o fundo estendido para cima e para a direita, para o chat ficar sobre a parte escura sem cobrir as bombas. No celular, aparece como um recorte das bombas abaixo do texto. Também é a imagem de compartilhamento (`og:image`).
+**Banner do hero**: `assets/banner-topo.jpg` (arte 3:1, trocada em 18/11/2026). As bombas ficam no canto inferior esquerdo: no desktop a arte ocupa a largura toda, colada embaixo, e o fundo claro continua para cima com fade (mesmo recurso do fundo das perguntas frequentes); o texto fica acima das bombas e o chat sobre o galpão, à direita. No celular, aparece como um recorte das bombas abaixo do texto. Também é a imagem de compartilhamento (`og:image`). Arte nova com outra composição exige rever o `margin-bottom` de `.hero-copy` (espaço reservado para as bombas).
 
 ## Configuração
 
