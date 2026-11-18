@@ -1,6 +1,6 @@
 # LP Bombas Industriais — Vazão Engenharia
 
-Landing page da campanha **Bombas Industriais** (Google Ads) da **Vazão Engenharia e Montagem**. Reúne os 4 grupos da campanha numa página só: **Kronox**, **ARO**, **Higra** e **Locação de Bombas**.
+Landing page da campanha **Bombas Industriais** (Google Ads) da **Vazão Engenharia e Montagem**. Reúne as linhas da campanha numa página só: **Kronox**, **ARO**, **Higra**, **Imbil**, **Seko** e **Locação de Bombas** (Imbil e Seko entraram em 18/11/2026).
 Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cada prateleira repete o termo do seu grupo no título.
 
 ## Estrutura
@@ -13,8 +13,8 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 
 1. Topo no padrão da LP NR13: logo, tagline "Bombas industriais e locação" e botão "Solicitar orçamento" (sem menu)
 2. Hero: H1 "Bombas industriais Kronox, ARO e Higra", pontos Engenharia · Nordeste · Desde 1991 e o chat do plugin (`[atendimento_chat id="default"]`)
-3. Linhas de bombas: Kronox, ARO, Higra e Locação (atalhos para as prateleiras) + selos "Venda e locação na mesma equipe" e "Locação com equipamentos revisados"
-4. Vitrine com uma prateleira por marca e a de locação; ARO com comparativo pneumática × elétrica
+3. Linhas de bombas: Kronox, ARO, Higra, Imbil, Seko e Locação (atalhos para as prateleiras, em grade de 3 colunas) + selos "Venda e locação na mesma equipe" e "Locação com equipamentos revisados"
+4. Vitrine com uma prateleira por marca e a de locação; ARO com comparativo pneumática × elétrica; Imbil com vazão e pressão máximas de cada modelo; Seko com o quadro "Onde a bomba dosadora entra"
 5. Como funciona a locação (etapas, sem prazos) + quando optar pela locação
 6. Aplicações: captação, elevatória de esgoto, drenagem (compra **e** locação), ETE + mineração (locação)
 7. Diferenciais
@@ -25,6 +25,8 @@ Palavra-chave principal: **bombas industriais** (no H1 e no título da aba). Cad
 ### Imagens
 
 **Locação**: os quatro cartões ficam só com o ícone, sem foto (decisão de 16/11/2026).
+
+**Imbil e Seko**: fotos dos produtos e textos tirados do site da Imbil (`imbil.com.br/produtos`) e do material enviado pela Vazão. Os cartões (`assets/produtos/imbil-*.jpg`, `seko-bombas-dosadoras.jpg`) e as artes das prateleiras (`assets/marcas/imbil-banner.jpg`, `seko-banner.jpg`) foram montados a partir dessas fotos. O logo da Imbil (`imbil.png`) está todo em vermelho e sem a frase "Soluções em Bombeamento", para aparecer no cartão branco.
 
 **Logos** (`assets/marcas/`): `kronox.png`, `aro.png` (baixa resolução) e `higra.png` (era JPG quadrado) podem ser trocados por versões melhores com o mesmo nome.
 
